@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+</head>
+
+<body>
+  <header>Weather Dashboard</header>
+  <main>
+    <div class="left">
+      <form>
+        <h1>Search for a City:</h1>
+        <input type="text" class="searchInput" id="searchInput" name="city" placeholder="Search City"><br>
+        <button class="search-btn" id="search-btn">Search</button>
+      </form>
+
+      <hr>
+      <div class="search-history">
+        <button>Atlanta</button>
+        <button>Denver</button>
+        <button>Seattle</button>
+        <button>San Francisco</button>
+        <button>Orlando</button>
+        <button>New York</button>
+        <button>Chicago</button>
+        </div>
+    </div>
+    <!-- current location div -->
+    <div class="right">
+      <div class="dash-div">
+        <h3 class="location" id="current-city"></h3>
+        <p id="icon"></p>
+        <p id="temperature"></p>
+        <p id="wind"></p>
+        <p id="humidity"></p>
+        
+      </div>
+
+      <div class="forcast">
+        <h2>5-Day Forcast:</h2>
+
+        <div class="five-day-container" id="five-day-container">
+          <!-- Day 1  -->
+          <!-- <div class="card" id="day-1">
+            <h2 id="day-one-date"></h2>
+          <div>icon</div>
+          <div class="container">
+            
+            <p id="day-one-temp"></p>
+            <p id="day-one-wind"></p>
+            <p id="day-one-hum"></p>
+          </div>
+          </div> -->
+       
+        </div>
+
+          </div> 
+      </div> 
+    </div> 
+  </main>
+
+  <script src="./assets/script.js"></script>
+</body>
+
+</html>
