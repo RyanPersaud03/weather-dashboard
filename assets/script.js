@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     var APIKey = "86171be4dcefe29c6968dba8880f93f9";
 
-    //  HTML Search Button stored in searchBtn variable
+    // HTML Search Button stored in searchBtn variable
     var searchBtn = document.getElementById("search-btn");
     // HTML input stored in searchInput variable
     var searchInput = document.getElementById("searchInput");
@@ -10,16 +10,44 @@ document.addEventListener("DOMContentLoaded", function () {
     searchBtn.addEventListener("click", searchCity);
     console.log("Hello World");
 
-    // Five Day forcast
+    // Load search history from local storage
+    var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+    updateSearchHistory();
+
+    // Five Day forecast
 
     function searchCity(event) {
-        event.preventDefault()
-        var city = searchInput.value;
+        event.preventDefault();
+        var city = searchInput.value.trim(); // Trim to remove leading/trailing spaces
+        if (city === "") {
+            return; // Ignore empty searches
+        }
+
+        // Check if the city is already in the search history
+        if (!searchHistory.includes(city)) {
+            searchHistory.push(city);
+            localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+            updateSearchHistory();
+        }
+
         console.log(searchInput.value + " searchInput");
         getForecast(city);
         getCurrentWeather(city);
+    }
 
-   
+    function updateSearchHistory() {
+        var searchHistoryContainer = document.querySelector(".search-history");
+        searchHistoryContainer.innerHTML = "";
+
+        searchHistory.forEach(function (city) {
+            var button = document.createElement("button");
+            button.textContent = city;
+            button.addEventListener("click", function () {
+                searchInput.value = city;
+                searchCity(new Event("click")); // Trigger search for the selected city
+            });
+            searchHistoryContainer.appendChild(button);
+        });
     }
 
     function getForecast(city) {

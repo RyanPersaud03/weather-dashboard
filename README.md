@@ -19,7 +19,7 @@
 ## How to Contribute
     N/A
 ## Features
-    Current weather, five day forecast.
+    Current weather, five day forecast and ability to save past searches to local storage.
 ## Questions
 https://github.com/RyanPersaud03?tab=repositories
 n/a
